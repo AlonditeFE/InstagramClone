@@ -25,16 +25,10 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Login" />
+        android:text="Sign up" />
 
-    <Button
-        android:id="@+id/btnJoin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Create Account" />
 </LinearLayout>
