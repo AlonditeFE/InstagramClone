@@ -34,12 +34,14 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Posting new information and opening the camera app took a long time because of simple mistakes. For post I forgot to change 
-the Post.class in getQuery(Post.class) and for the camera for somereason if (intent.resolveActivity(getPackageManager()) != null) {
+the Post.class in getQuery(Post.class) and for the camera for somereason 
+
+            if (intent.resolveActivity(getPackageManager()) != null) {
             // Start the image capture intent to take photo
             startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
 
         }
-       would not open in the camera so i added startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+  would not open in the camera so i added startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
        outside of the if statment.
 
 ## Open-source libraries used
