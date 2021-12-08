@@ -15,12 +15,24 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         tools:text="Keith" />
 
+
+
     <ImageView
         android:id="@+id/ivImage"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageButton
+        android:id="@+id/btnLike"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/like" />
+
+
 
     <TextView
         android:id="@+id/tvDescription"

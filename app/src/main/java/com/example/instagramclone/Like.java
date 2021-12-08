@@ -5,14 +5,14 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-@ParseClassName("Post")
+@ParseClassName("Like")
 
-public class Post extends ParseObject {
+public class Like extends ParseObject {
 
     public static final String KEY_DESCRIPTION = "description";
     public static final String KEY_IMAGE = "image";
-    public static final String KEY_USER = "user";
-    public static final String KEY_USER2 = "User2";
+    public static final String KEY_POSTER = "Poster";
+    public static final String KEY_LIKER = "Liker";
     public static final String KEY_CREATED_KEY = "createdAt";
 
 
@@ -32,19 +32,19 @@ public class Post extends ParseObject {
         put(KEY_IMAGE, parseFile);
     }
 
-    public ParseUser getUser() {
-        return getParseUser(KEY_USER);
+    public ParseUser getPoster() {
+        return getParseUser(KEY_POSTER);
     }
 
-    public void setUser(ParseUser user) {
-        put(KEY_USER, user);
+    public void setPoster(ParseUser Poster) {
+        put(KEY_POSTER, Poster);
     }
 
-    public ParseUser getUser2() {
-        return getParseUser(KEY_USER2);
+    public ParseUser getLiker() {
+        return getParseUser(KEY_LIKER);
     }
 
-    public void setUser2(ParseUser User2) {
-        put(KEY_USER2, User2);
+    public void setLiker(ParseUser Liker) {
+        put(KEY_LIKER, Liker);
     }
 }

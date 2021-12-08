@@ -30,6 +30,7 @@ import com.example.instagramclone.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
@@ -38,6 +39,7 @@ import java.io.File;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
+import static com.example.instagramclone.MainActivity.TAG;
 
 
 public class ComposeFragment extends Fragment {
@@ -75,6 +77,7 @@ public class ComposeFragment extends Fragment {
         btnSubmit = view.findViewById(R.id.btnSubmit);
         btnLogout = view.findViewById(R.id.btnLogout);
 
+
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +95,7 @@ public class ComposeFragment extends Fragment {
                 goLoginActivity();
             }
         });
+
 
 
         //  queryPosts();
@@ -192,6 +196,8 @@ public class ComposeFragment extends Fragment {
         });
 
     }
+
+
 
     private void queryPosts() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);

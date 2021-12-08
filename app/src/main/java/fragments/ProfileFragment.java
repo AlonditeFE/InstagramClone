@@ -4,9 +4,11 @@ import android.util.Log;
 
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.instagramclone.Like;
 import com.example.instagramclone.Post;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
@@ -17,8 +19,9 @@ public class ProfileFragment extends PostsFragment {
     @Override
     protected void queryPosts() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
+        ParseQuery<ParseObject> query2 = ParseQuery.getQuery("Like");
         query.include(Post.KEY_USER);
-        query.whereEqualTo(Post.KEY_USER, ParseUser.getCurrentUser());
+        query.whereMatchesKeyInQuery(Post.KEY_USER, Like.KEY_POSTER, query2);
         query.setLimit(20);
         query.addDescendingOrder(Post.KEY_CREATED_KEY);
         query.findInBackground(new FindCallback<Post>() {
