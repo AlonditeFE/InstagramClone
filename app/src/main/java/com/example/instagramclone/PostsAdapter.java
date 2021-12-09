@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,9 +21,12 @@ import com.parse.SaveCallback;
 
 import java.util.List;
 
+import static java.security.AccessController.getContext;
+
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
     private Context context;
     private List<Post> posts;
+    public static final String TAG = "PostsAdapter";
 
     public PostsAdapter(Context context, List<Post>posts) {
         this.context = context;
@@ -74,7 +78,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             btnLike.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Toast.makeText(getContext(), "Error while saving!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "You Liked this post!", Toast.LENGTH_SHORT).show();
+                    Log.i(TAG, "You Liked this post!");
                     ParseUser currentUser = ParseUser.getCurrentUser();
                     savePost2(currentUser);
 
@@ -95,7 +100,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                         //Log.e(TAG, "Error while saving", e);
                         //Toast.makeText(getContext(), "Error while saving!", Toast.LENGTH_SHORT).show();
                     }
-                    //Log.i(TAG, "Post save was successful");
+                    Log.i(TAG, "Post save was successful");
                 }
             });
 
